@@ -160,4 +160,6 @@ To use this script, place your raw fight data CSV file in the appropriate locati
 `process_and_clean_data()` function, and run the script. The cleaned data will be saved as `final_cleaned_data.csv`
 in the current directory.
 
+## Print Statement
+
 ![Data Cleaning Print Statement](images/Data%20Cleaning%20Print%20Statement.png)
