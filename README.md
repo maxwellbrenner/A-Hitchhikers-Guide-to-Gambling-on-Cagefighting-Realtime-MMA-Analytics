@@ -130,9 +130,9 @@ Code references:
 For each fight, detailed round-by-round statistics are extracted, including the number of significant strikes, body strikes, leg strikes, and more. This is handled by two helper functions:
     
 ![Round Statistics (General)](image%20(UFCStats.com)/UFCStats%20-%20Round%20Statistics%20(General).png)
-![Round Statistics (Strikes)](image%20(UFCStats.com)/UFCStats%20-%20Round%20Statistics%20(Strikes).png)
-    
 - **Significant Strikes:** The `extract_strikes_data()` function collects data about strikes such as strikes to the head, body, legs, and distance strikes.
+
+![Round Statistics (Strikes)](image%20(UFCStats.com)/UFCStats%20-%20Round%20Statistics%20(Strikes).png)
 - **General Fight Data:** The `extract_fighter_data()` function extracts other round-based data, such as knockdowns, submission attempts, takedowns, and control time.
     
 Code references:
