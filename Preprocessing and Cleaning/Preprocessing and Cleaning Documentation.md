@@ -70,6 +70,64 @@ The main function, `process_and_clean_data()`, orchestrates the preprocessing of
 
 This systematic approach ensures that the data is well-prepared for further analysis.
 
+```python
+# Main processing function
+def process_and_clean_data(file_path):
+    """
+    The main function for preprocessing and cleaning fight data. It applies a series of filters, calculations, and transformations 
+    to prepare the dataset for analysis.
+    
+    Parameters:
+    - file_path (str): The path to the CSV file containing raw fight data.
+
+    Returns:
+    - None: Saves the cleaned dataset to a CSV file called 'final_cleaned_data.csv'.
+    """
+    df = pd.read_csv(file_path)
+    df.replace(['--', ''], pd.NA, inplace=True)
+
+    # Filter by rounds and other steps
+    df = filter_by_time_format(df, num_rounds=3)
+    df = filter_by_early_stoppage(df, stop_round=2)
+    df = filter_by_date(df, start_date="2014-01-01")
+    df, dropped_rows = drop_NaN_values(df)
+    df = filter_by_gender(df, gender="men")
+
+    # Convert DOB to age and control time to minutes
+    dob_columns = ['fighter_a_dob', 'fighter_b_dob']
+    for col in dob_columns:
+        df[col.replace('_dob', '_age')] = df.apply(lambda row: dob_to_age(row[col], row['event_date']), axis=1)
+
+    control_columns = [col for col in df.columns if 'control_time' in col]
+    for col in control_columns:
+        df[col] = df[col].apply(control_time_to_minutes)
+
+    # Split columns with "Attempted of Landed" format
+    columns_to_split = [
+        'rnd_1_a_sig_strikes', 'rnd_1_b_sig_strikes', 'rnd_1_a_total_strikes', 'rnd_1_b_total_strikes',
+        'rnd_1_a_takedowns', 'rnd_1_b_takedowns', 'rnd_1_a_body_strikes', 'rnd_1_b_body_strikes',
+        'rnd_1_a_leg_strikes', 'rnd_1_b_leg_strikes', 'rnd_2_a_sig_strikes', 'rnd_2_b_sig_strikes',
+        'rnd_2_a_total_strikes', 'rnd_2_b_total_strikes', 'rnd_2_a_takedowns', 'rnd_2_b_takedowns',
+        'rnd_2_a_body_strikes', 'rnd_2_b_body_strikes', 'rnd_2_a_leg_strikes', 'rnd_2_b_leg_strikes'
+    ]
+
+    for col in columns_to_split:
+        attempted_landed_split(df, col)
+
+    # Calculate disparities for the first two rounds and sum them
+    df = calculate_disparities(df, rounds=2)
+
+    # Split fighter statistics into individual rows
+    df = split_fighter_statistics(df)
+
+    # Select final columns for the cleaned dataset
+    df_final = select_final_columns(df)
+
+    # Save the final dataset to a new CSV file
+    df_final.to_csv('final_cleaned_data.csv', index=False)
+    print("Final cleaned data has been saved as 'final_cleaned_data.csv'")
+```
+
 
 ## Usage
 
