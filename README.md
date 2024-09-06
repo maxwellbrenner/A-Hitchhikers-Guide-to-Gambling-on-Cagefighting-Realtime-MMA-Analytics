@@ -238,6 +238,13 @@ Once the main event page has been parsed, the program moves on to individual eve
     
 - Each event contains fight data for all matchups on that card.
 - The `extract_fight_info(fight_row)` function is responsible for extracting each fight’s basic information, such as fighter names, links, and method of victory.
+
+## Example of Scraped Data
+- **Fight Link**: [http://www.ufcstats.com/fight-details/15805ae1eea3343e](http://www.ufcstats.com/fight-details/15805ae1eea3343e)
+- **Winner**: Caio Borralho  
+- **Method of Victory**: Decision - Unanimous
+- **fighter_a**: Caio Borralho 
+- **fighter_b**: Jared Cannonier
     
 Code references:
 - `extract_fight_info(fight_row)`: Extracts individual fight information like fighter names, method of victory, and fight link.
@@ -268,13 +275,6 @@ def extract_fight_info(fight_row):
     }
 ```
 
-## Example of Scraped Data
-**Fight Link**: [http://www.ufcstats.com/fight-details/15805ae1eea3343e](http://www.ufcstats.com/fight-details/15805ae1eea3343e)
-**Winner**: Caio Borralho  
-**Method of Victory**: Decision - Unanimous
-**fighter_a**: Caio Borralho 
-**fighter_b**: Jared Cannonier
-
 
 ### 3. Scraping Fight-Specific Data
 
@@ -284,6 +284,15 @@ The program navigates to the fight-specific page for each individual fight in an
     
 - On this page, detailed information about the fight is available, such as the weight class, fight result (method of victory), referee, and round-specific statistics (significant strikes, knockdowns, etc.).
 - The `scrape_fight_info(fight_info)` function handles gathering these details from the fight page and updates the `fight_info` dictionary.
+
+## Example of Scraped Data
+- **Round of Victory**: 5  
+- **Time of Victory**: 5:00  
+- **Time Format**: 5 Rnd (5-5-5-5-5)  
+- **Weight Class**: Middleweight Bout  
+- **Referee**: Dan Miragliotta  
+- **Title Fight**: False  
+- **Gender**: Men
 
 Code references:
 - `scrape_fight_info(fight_info)`: Scrapes detailed fight data, including rounds, weight class, and method of victory.
@@ -348,15 +357,6 @@ def scrape_fight_info(fight_info):
         print(f"Fighter A: {round_data}")
         print(f"\nFighter B: {fight_info['fighter_b']['rounds_b'][i-1]}")
 ```
-
-## Example of Scraped Data
-**Round of Victory**: 5  
-**Time of Victory**: 5:00  
-**Time Format**: 5 Rnd (5-5-5-5-5)  
-**Weight Class**: Middleweight Bout  
-**Referee**: Dan Miragliotta  
-**Title Fight**: False  
-**Gender**: Men  
 
 
 ### 4. Extracting Round-by-Round Data
@@ -510,7 +510,7 @@ def extract_strikes_data(row, index):
   - Distance Strikes: 12 of 34  
   - Clinch Strikes: 0 of 0  
   - Ground Strikes: 0 of 0
-
+ 
 
 ### 5. Scraping Fighter Information
 
@@ -519,6 +519,21 @@ The program also scrapes individual fighter pages to gather more specific detail
 ![Fighter Info](image%20(UFCStats.com)/UFCStats%20-%20Fighter%20Info.png)
     
 - The `scrape_fighter_info(fighter_info)` function handles this task, retrieving attributes like height and reach from the fighter's profile page.
+
+## Example of Scraped Data
+### Fighter Info for **Caio Borralho**:
+- **Name**: Caio Borralho
+- **Height**: 6' 1"  
+- **Reach**: 75"  
+- **Date of Birth**: 01-16-1993  
+- **Fighter Link**: [http://www.ufcstats.com/fighter-details/4126a78111c0855a](http://www.ufcstats.com/fighter-details/4126a78111c0855a)
+
+### Fighter Info for **Jared Cannonier**:
+- **Name**: Jared Cannonier
+- **Height**: 5' 11"  
+- **Reach**: 77"  
+- **Date of Birth**: 03-16-1984  
+- **Fighter Link**: [http://www.ufcstats.com/fighter-details/13a0275fa13c4d26](http://www.ufcstats.com/fighter-details/13a0275fa13c4d26)
     
 Code references:
 - `scrape_fighter_info(fighter_info)`: Gathers personal statistics for each fighter, such as height and reach.
@@ -577,21 +592,6 @@ def scrape_fighter_info(fighter_info):
     print(f"Date of Birth: {fighter_info['dob']}")
     print(f"Fighter Link: {fighter_info['link']}")
 ```
-
-## Example of Scraped Data
-### Fighter Info for **Caio Borralho**:
-- **Name**: Caio Borralho
-- **Height**: 6' 1"  
-- **Reach**: 75"  
-- **Date of Birth**: 01-16-1993  
-- **Fighter Link**: [http://www.ufcstats.com/fighter-details/4126a78111c0855a](http://www.ufcstats.com/fighter-details/4126a78111c0855a)
-
-### Fighter Info for **Jared Cannonier**:
-- **Name**: Jared Cannonier
-- **Height**: 5' 11"  
-- **Reach**: 77"  
-- **Date of Birth**: 03-16-1984  
-- **Fighter Link**: [http://www.ufcstats.com/fighter-details/13a0275fa13c4d26](http://www.ufcstats.com/fighter-details/13a0275fa13c4d26)
 
 
 ### 6. Writing the Data to CSV
