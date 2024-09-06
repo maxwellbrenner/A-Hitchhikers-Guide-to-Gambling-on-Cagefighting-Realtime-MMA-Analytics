@@ -222,6 +222,15 @@ def extract_event_info(event_element):
     return event_info, event_soup
 ```
 
+## Example of Scraped Data
+
+### Event: UFC Fight Night: Cannonier vs. Borralho
+**Name**: UFC Fight Night: Cannonier vs. Borralho
+**Link**: http://www.ufcstats.com/event-details/be8ad887e4d674b0
+**Date**: 08-24-2024  
+**Location**: Las Vegas, Nevada, USA
+
+
 ### 2. Extracting Event Details
 
 Once the main event page has been parsed, the program moves on to individual event pages, which list all the fights for that event.
@@ -259,6 +268,14 @@ def extract_fight_info(fight_row):
         'fighter_b': fighter_b
     }
 ```
+
+## Example of Scraped Data
+**Fight Link**: [http://www.ufcstats.com/fight-details/15805ae1eea3343e](http://www.ufcstats.com/fight-details/15805ae1eea3343e)
+**Winner**: Caio Borralho  
+**Method of Victory**: Decision - Unanimous
+**fighter_a**: Caio Borralho 
+**fighter_b**: Jared Cannonier
+
 
 ### 3. Scraping Fight-Specific Data
 
@@ -332,6 +349,16 @@ def scrape_fight_info(fight_info):
         print(f"Fighter A: {round_data}")
         print(f"\nFighter B: {fight_info['fighter_b']['rounds_b'][i-1]}")
 ```
+
+## Example of Scraped Data
+**Round of Victory**: 5  
+**Time of Victory**: 5:00  
+**Time Format**: 5 Rnd (5-5-5-5-5)  
+**Weight Class**: Middleweight Bout  
+**Referee**: Dan Miragliotta  
+**Title Fight**: False  
+**Gender**: Men  
+
 
 ### 4. Extracting Round-by-Round Data
 
@@ -453,6 +480,39 @@ def extract_strikes_data(row, index):
     }
 ```
 
+## Example of Scraped Data
+#### Round 1:
+- **Fighter A (Caio Borralho)**:  
+  - Knockdowns: 0  
+  - Significant Strikes: 15 of 32  
+  - Total Strikes: 15 of 32  
+  - Takedowns: 0 of 0  
+  - Submission Attempts: 0  
+  - Reversals: 0  
+  - Control Time: 0:00  
+  - Head Strikes: 7 of 22  
+  - Body Strikes: 4 of 6  
+  - Leg Strikes: 4 of 4  
+  - Distance Strikes: 15 of 32  
+  - Clinch Strikes: 0 of 0  
+  - Ground Strikes: 0 of 0  
+
+- **Fighter B (Jared Cannonier)**:  
+  - Knockdowns: 0  
+  - Significant Strikes: 12 of 34  
+  - Total Strikes: 12 of 34  
+  - Takedowns: 0 of 0  
+  - Submission Attempts: 0  
+  - Reversals: 0  
+  - Control Time: 0:00  
+  - Head Strikes: 4 of 23  
+  - Body Strikes: 2 of 2  
+  - Leg Strikes: 6 of 9  
+  - Distance Strikes: 12 of 34  
+  - Clinch Strikes: 0 of 0  
+  - Ground Strikes: 0 of 0
+
+
 ### 5. Scraping Fighter Information
 
 The program also scrapes individual fighter pages to gather more specific details such as height, reach, and date of birth. This is useful for contextualizing the statistics.
@@ -518,6 +578,22 @@ def scrape_fighter_info(fighter_info):
     print(f"Date of Birth: {fighter_info['dob']}")
     print(f"Fighter Link: {fighter_info['link']}")
 ```
+
+## Example of Scraped Data
+### Fighter Info for **Caio Borralho**:
+- **Name**: Caio Borralho
+- **Height**: 6' 1"  
+- **Reach**: 75"  
+- **Date of Birth**: 01-16-1993  
+- **Fighter Link**: [http://www.ufcstats.com/fighter-details/4126a78111c0855a](http://www.ufcstats.com/fighter-details/4126a78111c0855a)
+
+### Fighter Info for **Jared Cannonier**:
+- **Name**: Jared Cannonier
+- **Height**: 5' 11"  
+- **Reach**: 77"  
+- **Date of Birth**: 03-16-1984  
+- **Fighter Link**: [http://www.ufcstats.com/fighter-details/13a0275fa13c4d26](http://www.ufcstats.com/fighter-details/13a0275fa13c4d26)
+
 
 ### 6. Writing the Data to CSV
 
