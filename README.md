@@ -161,7 +161,7 @@ The program starts by requesting and parsing the UFCStats homepage for completed
 - **Date**: 08-24-2024  
 - **Location**: Las Vegas, Nevada, USA  
 #
-`get_page_content(url)`: Fetches the HTML page for completed UFC events.
+- `get_page_content(url)`: Fetches the HTML page for completed UFC events.
 
 ```python
 def get_page_content(url):
@@ -189,7 +189,8 @@ def get_page_content(url):
     return None
 ```
 
-`extract_event_info(event_element)`: Extracts information about each event (name, link, date, and location).
+#
+- `extract_event_info(event_element)`: Extracts information about each event (name, link, date, and location).
 
 ```python
 def extract_event_info(event_element):
