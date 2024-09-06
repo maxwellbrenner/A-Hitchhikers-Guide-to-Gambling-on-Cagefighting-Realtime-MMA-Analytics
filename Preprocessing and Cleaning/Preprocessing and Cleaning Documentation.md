@@ -155,7 +155,7 @@ def process_and_clean_data(file_path):
 To use this script, place your raw fight data CSV file in the appropriate location, specify the file path in the `process_and_clean_data()` function, and run the script. The cleaned data will be saved as `final_cleaned_data.csv` in the current directory.
 
 ```python
-file_path = r"your_raw_data_path"
+file_path = r"event_masterlist"
 process_and_clean_data(file_path)
 ```
 
