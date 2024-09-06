@@ -243,6 +243,7 @@ Once the main event page has been parsed, the program moves on to individual eve
 - **Method of Victory**: Decision - Unanimous
 - **fighter_a**: Caio Borralho 
 - **fighter_b**: Jared Cannonier
+#
     
 - `extract_fight_info(fight_row)`: Extracts individual fight information like fighter names, method of victory, and fight link.
 
@@ -290,6 +291,7 @@ The program navigates to the fight-specific page for each individual fight in an
 - **Referee**: Dan Miragliotta  
 - **Title Fight**: False  
 - **Gender**: Men
+#
 
 - `scrape_fight_info(fight_info)`: Scrapes detailed fight data, including rounds, weight class, and method of victory.
 
@@ -593,6 +595,7 @@ Once all event, fight, and fighter data has been collected, the program writes t
 
 - The headers of the CSV include event name, event date, location, winner, fighter statistics, and round-by-round details.
 - For each fight, it includes a row with detailed information about the event, fighter, and round statistics.
+#
 
 - `write_to_csv(events_list)`: Writes all collected fight and fighter data to a CSV file for analysis.
 
