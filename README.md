@@ -160,6 +160,7 @@ The program starts by requesting and parsing the UFCStats homepage for completed
 - **Link**: http://www.ufcstats.com/event-details/be8ad887e4d674b0
 - **Date**: 08-24-2024  
 - **Location**: Las Vegas, Nevada, USA
+- 
 
 - `get_page_content(url)`: Fetches the HTML page for completed UFC events.
 
