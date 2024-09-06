@@ -686,7 +686,7 @@ If a fight does not go the full 5 rounds, `NaN` values will be recorded for any 
 
 #### Fighters and Rounds Explanation
 
-The round-by-round data is structured for up to **5 rounds** of a fight, and statistics are collected for **both fighters (A and B)**. For example, data for **Round 1** includes metrics like knockdowns, significant strikes, and takedowns for both Fighter A and Fighter B.
+The round-by-round data is structured for up to **5 rounds** of a fight, and statistics are collected for **both fighters (A and B)**.
 
 To avoid redundancy, the columns follow this naming convention:
 - **Round Data for Fighter A**: Prefixes like `rnd_one_a`, `rnd_two_a`, etc., represent statistics for Fighter A in each round.
