@@ -670,7 +670,7 @@ def write_to_csv(events_list):
 ```
 
 
-### Data Columns Explanation
+## Data Columns Explanation
 
 The following list represents the column headers for the CSV output of the UFCStats web scraper. The scraper collects fight data from UFC events, including both event-level and round-by-round statistics for two fighters. The data includes details such as significant strikes, total strikes, takedowns, control time, and other key fight metrics.
 
