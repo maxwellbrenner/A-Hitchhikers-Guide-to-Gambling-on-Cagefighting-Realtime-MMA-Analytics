@@ -1,4 +1,4 @@
-# A-Hitchhiker-s-Guide-to-Gambling-on-Cagefighting-Realtime-MMA-Analytics
+# A Hitchhikers Guide to Gambling on Cagefighting -- Realtime MMA Analytics
 
 # UFC Fight Scraper
 
