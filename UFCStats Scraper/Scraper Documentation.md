@@ -1,6 +1,6 @@
 # A Hitchhikers Guide to Gambling on Cagefighting -- Realtime MMA Analytics
 
-## Function Descriptions (Ordered by Execution in 'main()')
+## Function Descriptions (Ordered by Execution in `main()`)
 
 ### 1. `get_page_content(url)`
 - **Description**: This function retrieves and parses the HTML content from the given URL using the `requests` library. It returns a BeautifulSoup object if the request is successful, otherwise, it prints an error message and returns `None`.
