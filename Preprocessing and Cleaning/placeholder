@@ -7,3 +7,23 @@ Rather than include in-round statistics for each fighter, we calculate dispariti
 Three fight statistics (total strikes landed, significant strikes attempted, significant strikes to the head) were not included in the model because of 
 multicollinearity.
 Reversals, distance strikes, clinch strikes, and ground strikes are all excluded from out model as well, as ESPN does not publish them in real-time.
+
+
+
+
+After gathering a comprehensive dataset that includes every event, fight, and round statistic, we now focus on preparing the data for analysis. 
+The goal is to predict the outcome of three-round (non-title) fights fought in the men's division, using real-time performance metrics from the first two rounds.
+
+We exclude women's and title fights because of the limited sample size. The majority of MMA fights are fought in the men's division, and of those, only a handful are title fights (5 rounds).
+To ensure consistent and reliable predictions, our model focuses exclusively on three-round fights, where the first two rounds provide sufficient data for analysis.
+
+Fights that end before the second round are excluded from our analysis, as these early stoppages do not yield enough in-round statistics to meet our model’s requirements. 
+Moreover, given the significant evolution in MMA over the past decade, we limit our dataset to the last ten years, focusing on modern data for better predictive accuracy.
+
+Rather than analyzing raw statistics for each fighter, we compute performance disparities — such as the difference in strikes landed or control time — between fighters. 
+This approach provides a clearer picture of how one fighter’s performance compares to their opponent, which is a stronger indicator of fight outcomes.
+
+Certain statistics like total strikes landed, significant strikes attempted, and significant strikes to the head are excluded from the model to avoid multicollinearity, 
+where highly correlated variables can reduce the model’s accuracy. Additionally, metrics like reversals, distance strikes, clinch strikes, and ground strikes are excluded 
+because they are not consistently available in real-time, limiting their utility in predictive models.
+
