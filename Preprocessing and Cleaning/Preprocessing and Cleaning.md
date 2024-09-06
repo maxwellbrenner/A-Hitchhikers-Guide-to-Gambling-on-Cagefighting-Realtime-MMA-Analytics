@@ -65,11 +65,12 @@ This systematic approach ensures that the data is well-prepared for further anal
 To use this script, place your raw fight data CSV file in the appropriate location, specify the file path in the `process_and_clean_data` function, and run the script. The cleaned data will be saved as `final_cleaned_data.csv` in the current directory.
 
 ```python
-file_path = r"C:\path_to_your_file\event_masterlist.csv"
+file_path = r"your_raw_data_path"
 process_and_clean_data(file_path)
+```
 
-To use this script, place your raw fight data CSV file in the appropriate location, specify the file path in the `process_and_clean_data` function, and run the script. The cleaned data will be saved as `final_cleaned_data.csv` in the current directory.
+To use this script, place your raw fight data CSV file in the appropriate location, specify the file path in the
+`process_and_clean_data` function, and run the script. The cleaned data will be saved as `final_cleaned_data.csv`
+in the current directory.
 
-```python
-file_path = r"C:\path_to_your_file\event_masterlist.csv"
-process_and_clean_data(file_path)
+
