@@ -124,6 +124,7 @@ def get_page_content(url):
 
     print("All attempts failed. Returning None.")
     return None
+```
 
 - `extract_event_info(event_element)`: Extracts information about each event (name, link, date, and location).
 
