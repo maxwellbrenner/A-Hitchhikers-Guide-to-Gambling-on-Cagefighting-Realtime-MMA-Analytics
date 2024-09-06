@@ -670,3 +670,53 @@ def write_to_csv(events_list):
 ```
 
 
+### Data Columns Explanation
+
+The following list represents the column headers for the CSV output of the UFCStats web scraper. The scraper collects fight data from UFC events, including both event-level and round-by-round statistics for two fighters. The data includes details such as significant strikes, total strikes, takedowns, control time, and other key fight metrics.
+
+#### Column Structure
+
+The data is structured to capture the following information:
+- **Event Information**: General details about the UFC event, such as the event name, date, location, and link.
+- **Fight Summary**: Information about the fight, including the winner, method of victory, and fighter details.
+- **Round-by-Round Statistics**: Detailed statistics for each round, covering both fighters' performance metrics (e.g., knockdowns, significant strikes, takedowns, control time, etc.).
+
+If a fight does not go the full 5 rounds, `NaN` values will be recorded for any rounds not reached.
+
+#### Fighters and Rounds Explanation
+
+The round-by-round data is structured for up to **5 rounds** of a fight, and statistics are collected for **both fighters (A and B)**. For example, data for **Round 1** includes metrics like knockdowns, significant strikes, and takedowns for both Fighter A and Fighter B.
+
+To avoid redundancy, the columns follow this naming convention:
+- **Round Data for Fighter A**: Prefixes like `rnd_one_a`, `rnd_two_a`, etc., represent statistics for Fighter A in each round.
+- **Round Data for Fighter B**: Prefixes like `rnd_one_b`, `rnd_two_b`, etc., represent statistics for Fighter B in each round.
+
+For example, `rnd_one_a_sig_strikes` refers to the number of significant strikes landed by Fighter A in Round 1, while `rnd_one_b_sig_strikes` refers to the same metric for Fighter B in Round 1.
+
+#### Key Column Groups
+
+1. **Event Information**:
+   - `event_name`, `event_date`, `event_location`, `event_link`
+   
+2. **Fight Information**:
+   - `winner`, `fighter_a_name`, `fighter_b_name`, `weightclass`, `method_of_victory`, `round_of_victory`, `time_of_victory`, `referee`, `title_fight`, `gender`, `fight_link`
+
+3. **Fighter Details**:
+   - `fighter_a_height`, `fighter_b_height`, `fighter_a_reach`, `fighter_b_reach`, `fighter_a_dob`, `fighter_b_dob`
+   
+4. **Round-by-Round Metrics (for each round, and for both fighters)**:
+   - `knockdowns`
+   - `sig_strikes`
+   - `total_strikes`
+   - `takedowns`
+   - `sub_attemps`
+   - `reversals`
+   - `control_time`
+   - `head_strikes`
+   - `body_strikes`
+   - `leg_strikes`
+   - `distance_strikes`
+   - `clinch_strikes`
+   - `ground_strikes`
+
+The full set of columns is dynamically generated for each round (up to 5 rounds) and each fighter (A and B), following this structure.
