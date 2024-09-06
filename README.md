@@ -364,6 +364,7 @@ For each fight, detailed round-by-round statistics are extracted, including the 
 - **General Fight Data:** The `extract_fighter_data()` function extracts other round-based data, such as knockdowns, submission attempts, takedowns, and control time.
     
 ![Round Statistics (General)](image%20(UFCStats.com)/UFCStats%20-%20Round%20Statistics%20(General).png)
+#
 
 - `extract_fighter_data(row, index)`: Extracts fighter-specific statistics (e.g., knockdowns, takedowns, submission attempts) for each round.
   
@@ -426,6 +427,7 @@ def extract_fighter_data(row, index):
 - **Significant Strikes:** The `extract_strikes_data()` function collects data about strikes such as strikes to the head, body, legs, and distance strikes.
 
 ![Round Statistics (Strikes)](image%20(UFCStats.com)/UFCStats%20-%20Round%20Statistics%20(Strikes).png)
+#
 
 - `extract_strikes_data(row, index)`: Extracts round-based strike information.
 
