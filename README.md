@@ -161,6 +161,7 @@ The program starts by requesting and parsing the UFCStats homepage for completed
 - **Date**: 08-24-2024  
 - **Location**: Las Vegas, Nevada, USA  
 #
+## Code References
 - `get_page_content(url)`: Fetches the HTML page for completed UFC events.
 
 ```python
