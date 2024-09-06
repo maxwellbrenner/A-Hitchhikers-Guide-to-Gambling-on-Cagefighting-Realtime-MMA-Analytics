@@ -164,6 +164,11 @@ The program starts by requesting and parsing the UFCStats homepage for completed
 - `get_page_content(url)`: Fetches the HTML page for completed UFC events.
 
 ```python
+# Define headers for the HTTP request
+headers = {
+    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.121 Safari/537.36'
+}
+
 def get_page_content(url):
     """
     Retrieve and parse HTML content from a specified URL using a user-defined number of retries.
