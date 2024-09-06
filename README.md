@@ -155,6 +155,13 @@ The program starts by requesting and parsing the UFCStats homepage for completed
 - The homepage contains a list of events, each represented by a hyperlink. The events are marked with their names, locations, and dates.
 - Each event link is scraped and stored for further processing.
 
+## Example of Scraped Data
+### Event: UFC Fight Night: Cannonier vs. Borralho
+**Name**: UFC Fight Night: Cannonier vs. Borralho
+**Link**: http://www.ufcstats.com/event-details/be8ad887e4d674b0
+**Date**: 08-24-2024  
+**Location**: Las Vegas, Nevada, USA
+
 Code references:
 - `get_page_content(url)`: Fetches the HTML page for completed UFC events.
 
@@ -221,14 +228,6 @@ def extract_event_info(event_element):
     
     return event_info, event_soup
 ```
-
-## Example of Scraped Data
-
-### Event: UFC Fight Night: Cannonier vs. Borralho
-**Name**: UFC Fight Night: Cannonier vs. Borralho
-**Link**: http://www.ufcstats.com/event-details/be8ad887e4d674b0
-**Date**: 08-24-2024  
-**Location**: Las Vegas, Nevada, USA
 
 
 ### 2. Extracting Event Details
