@@ -231,7 +231,7 @@ def extract_event_info(event_element):
 
 Once the main event page has been parsed, the program moves on to individual event pages, which list all the fights for that event.
 
-![Event Page](UFCStats%20Scraper/images%20(UFCStats.com)/UFCStats%20-%20Event%20Page.png)
+![Event Page](images%20(UFCStats.com)/UFCStats%20-%20Event%20Page.png)
     
 - Each event contains fight data for all matchups on that card.
 - The `extract_fight_info(fight_row)` function is responsible for extracting each fight’s basic information, such as fighter names, links, and method of victory.
@@ -277,7 +277,7 @@ def extract_fight_info(fight_row):
 
 The program navigates to the fight-specific page for each individual fight in an event.
 
-![Fight Page](UFCStats%20Scraper/images%20(UFCStats.com)/UFCStats%20-%20Fight%20Page.png)
+![Fight Page](images%20(UFCStats.com)/UFCStats%20-%20Fight%20Page.png)
     
 - On this page, detailed information about the fight is available, such as the weight class, fight result (method of victory), referee, and round-specific statistics (significant strikes, knockdowns, etc.).
 - The `scrape_fight_info(fight_info)` function handles gathering these details from the fight page and updates the `fight_info` dictionary.
@@ -362,7 +362,7 @@ For each fight, detailed round-by-round statistics are extracted, including the 
 
 - **General Fight Data:** The `extract_fighter_data()` function extracts other round-based data, such as knockdowns, submission attempts, takedowns, and control time.
     
-![Round Statistics (General)](UFCStats%20Scraper/images%20(UFCStats.com)/UFCStats%20-%20Round%20Statistics%20(General).png)
+![Round Statistics (General)](images%20(UFCStats.com)/UFCStats%20-%20Round%20Statistics%20(General).png)
 
 ## Code References
 - `extract_fighter_data(row, index)`: Extracts fighter-specific statistics (e.g., knockdowns, takedowns, submission attempts) for each round.
@@ -425,7 +425,7 @@ def extract_fighter_data(row, index):
 
 - **Significant Strikes:** The `extract_strikes_data()` function collects data about strikes such as strikes to the head, body, legs, and distance strikes.
 
-![Round Statistics (Strikes)](UFCStats%20Scraper/images%20(UFCStats.com)/UFCStats%20-%20Round%20Statistics%20(Strikes).png)
+![Round Statistics (Strikes)](images%20(UFCStats.com)/UFCStats%20-%20Round%20Statistics%20(Strikes).png)
 
 ## Code References
 - `extract_strikes_data(row, index)`: Extracts round-based strike information.
@@ -513,7 +513,7 @@ def extract_strikes_data(row, index):
 
 The program also scrapes individual fighter pages to gather more specific details such as height, reach, and date of birth. This is useful for contextualizing the statistics.
     
-![Fighter Info](UFCStats%20Scraper/images%20(UFCStats.com)/UFCStats%20-%20Fighter%20Info.png)
+![Fighter Info](images%20(UFCStats.com)/UFCStats%20-%20Fighter%20Info.png)
     
 - The `scrape_fighter_info(fighter_info)` function handles this task, retrieving attributes like height and reach from the fighter's profile page.
 
