@@ -46,19 +46,30 @@ This script is designed to preprocess and clean fight data, focusing on filterin
 
 The main function, `process_and_clean_data`, orchestrates the preprocessing of the fight dataset by following these steps:
 
-1. **Filter by rounds**: Filters out irrelevant rounds using `filter_by_time_format`.
-2. **Remove early stoppages**: Excludes early stoppages using `filter_by_early_stoppage`.
-3. **Filter by date**: Keeps fights within the desired date range using `filter_by_date`.
-4. **Drop missing values**: Cleans missing data using `drop_NaN_values`.
-5. **Filter by gender**: Keeps only fights from the specified gender using `filter_by_gender`.
-6. **Calculate age and control time**: Converts date of birth to age and control time to minutes using `dob_to_age` and `control_time_to_minutes`.
-7. **Split 'attempted of landed' columns**: Splits columns with 'X of Y' format using `attempted_landed_split`.
-8. **Calculate disparities**: Computes statistical disparities between fighters using `calculate_disparities`.
-9. **Split fighter data**: Creates independent rows for each fighter using `split_fighter_statistics`.
-10. **Select final columns**: Keeps only the relevant columns using `select_final_columns`.
+1. **Filter by rounds**: Filters out irrelevant rounds using the `filter_by_time_format` function.
+
+2. **Remove early stoppages**: Excludes early stoppages using the `filter_by_early_stoppage` function.
+
+3. **Filter by date**: Keeps fights within the desired date range using the `filter_by_date` function.
+
+4. **Drop missing values**: Cleans missing data using the `drop_NaN_values` function.
+
+5. **Filter by gender**: Keeps only fights from the specified gender using the `filter_by_gender` function.
+
+6. **Calculate age and control time**: Converts date of birth to age and control time to minutes using the `dob_to_age` and `control_time_to_minutes` functions.
+
+7. **Split 'attempted of landed' columns**: Splits columns with 'X of Y' format using the `attempted_landed_split` function.
+
+8. **Calculate disparities**: Computes statistical disparities between fighters using the `calculate_disparities` function.
+
+9. **Split fighter data**: Creates independent rows for each fighter using the `split_fighter_statistics` function.
+
+10. **Select final columns**: Keeps only the relevant columns using the `select_final_columns` function.
+
 11. **Save the cleaned dataset**: Outputs the cleaned dataset to a CSV file.
 
 This systematic approach ensures that the data is well-prepared for further analysis.
+
 
 ## Usage
 
