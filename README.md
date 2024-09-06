@@ -76,3 +76,86 @@ The `main` function orchestrates the web scraping process by following these ste
 7. **Error Handling**: The function includes basic error handling to ensure that if an error occurs, the data collected so far is still written to the CSV.
 
 By the end of the `main` function, a detailed list of events and fight data is collected and written to a CSV file.
+
+
+---
+
+# UFCStats Web Scraper
+
+This program scrapes data from the UFCStats website to extract detailed event, fight, and fighter statistics. It collects data such as fight results, significant strikes, fighter attributes, and outputs it into a CSV file for easy analysis.
+
+## Starting Point of the Program
+
+The program begins by executing the `main()` function. This function handles the overall flow, retrieving the main event page, scraping fight data for each event, and writing the output to a CSV file. Below is a step-by-step breakdown of the process:
+
+### 1. Fetching the Main UFC Events Page
+
+The program starts by requesting and parsing the UFCStats homepage for completed events. This is done by calling `get_page_content(url)`, where `url` points to the main UFC stats events page (`http://www.ufcstats.com/statistics/events/completed?page=all`).
+
+![Homepage](file-z1dKQZiqpuB6RMP790f7UNKz)
+    
+- The homepage contains a list of events, each represented by a hyperlink. The events are marked with their names, locations, and dates.
+- Each event link is scraped and stored for further processing.
+
+Code references:
+- `get_page_content(url)`: Fetches the HTML page for completed UFC events.
+- `extract_event_info(event_element)`: Extracts information about each event (name, link, date, and location).
+
+### 2. Extracting Event Details
+
+Once the main event page has been parsed, the program moves on to individual event pages, which list all the fights for that event.
+
+![Event Page](file-m3dtpVN7pJS6mhj6j3KNAxdb)
+    
+- Each event contains fight data for all matchups on that card.
+- The `extract_fight_info(fight_row)` function is responsible for extracting each fight’s basic information, such as fighter names, links, and method of victory.
+    
+Code references:
+- `extract_fight_info(fight_row)`: Extracts individual fight information like fighter names, method of victory, and fight link.
+
+### 3. Scraping Fight-Specific Data
+
+The program navigates to the fight-specific page for each individual fight in an event.
+
+![Fight Page](file-ZMHzPlQqiyQo49emtSRSc7zy)
+    
+- On this page, detailed information about the fight is available, such as the weight class, fight result (method of victory), referee, and round-specific statistics (significant strikes, knockdowns, etc.).
+- The `scrape_fight_info(fight_info)` function handles gathering these details from the fight page and updates the `fight_info` dictionary.
+
+Code references:
+- `scrape_fight_info(fight_info)`: Scrapes detailed fight data, including rounds, weight class, and method of victory.
+
+### 4. Extracting Round-by-Round Data
+
+For each fight, detailed round-by-round statistics are extracted, including the number of significant strikes, body strikes, leg strikes, and more. This is handled by two helper functions:
+    
+![Round Statistics (General)](file-HxwxLahkwr25jfGJAWwMN46I)
+![Round Statistics (Strikes)](file-CQCV0DQPYobXyzqpVBXC8Q1Y)
+    
+- **Significant Strikes:** The `extract_strikes_data()` function collects data about strikes such as strikes to the head, body, legs, and distance strikes.
+- **General Fight Data:** The `extract_fighter_data()` function extracts other round-based data, such as knockdowns, submission attempts, takedowns, and control time.
+    
+Code references:
+- `extract_strikes_data(row, index)`: Extracts round-based strike information.
+- `extract_fighter_data(row, index)`: Extracts fighter-specific statistics (e.g., knockdowns, takedowns, submission attempts) for each round.
+
+### 5. Scraping Fighter Information
+
+The program also scrapes individual fighter pages to gather more specific details such as height, reach, and date of birth. This is useful for contextualizing the statistics.
+    
+![Fighter Info](file-JdMIx9KRALYFEH67DfbWLpzl)
+    
+- The `scrape_fighter_info(fighter_info)` function handles this task, retrieving attributes like height and reach from the fighter's profile page.
+    
+Code references:
+- `scrape_fighter_info(fighter_info)`: Gathers personal statistics for each fighter, such as height and reach.
+
+### 6. Writing the Data to CSV
+
+Once all event, fight, and fighter data has been collected, the program writes the results into a CSV file using the `write_to_csv(events_list)` function.
+
+- The headers of the CSV include event name, event date, location, winner, fighter statistics, and round-by-round details.
+- For each fight, it includes a row with detailed information about the event, fighter, and round statistics.
+
+Code references:
+- `write_to_csv(events_list)`: Writes all collected fight and fighter data to a CSV file for analysis.
