@@ -92,7 +92,7 @@ The program begins by executing the `main()` function. This function handles the
 
 The program starts by requesting and parsing the UFCStats homepage for completed events. This is done by calling `get_page_content(url)`, where `url` points to the main UFC stats events page (`http://www.ufcstats.com/statistics/events/completed?page=all`).
 
-![Homepage](file-z1dKQZiqpuB6RMP790f7UNKz)
+![Homepage](image%20(UFCStats.com)/UFCStats%20-%20Homepage.png)
     
 - The homepage contains a list of events, each represented by a hyperlink. The events are marked with their names, locations, and dates.
 - Each event link is scraped and stored for further processing.
@@ -105,7 +105,7 @@ Code references:
 
 Once the main event page has been parsed, the program moves on to individual event pages, which list all the fights for that event.
 
-![Event Page](file-m3dtpVN7pJS6mhj6j3KNAxdb)
+![Event Page](image%20(UFCStats.com)/UFCStats%20-%20Event%20Page.png)
     
 - Each event contains fight data for all matchups on that card.
 - The `extract_fight_info(fight_row)` function is responsible for extracting each fight’s basic information, such as fighter names, links, and method of victory.
@@ -117,7 +117,7 @@ Code references:
 
 The program navigates to the fight-specific page for each individual fight in an event.
 
-![Fight Page](file-ZMHzPlQqiyQo49emtSRSc7zy)
+![Fight Page](image%20(UFCStats.com)/UFCStats%20-%20Fight%20Page.png)
     
 - On this page, detailed information about the fight is available, such as the weight class, fight result (method of victory), referee, and round-specific statistics (significant strikes, knockdowns, etc.).
 - The `scrape_fight_info(fight_info)` function handles gathering these details from the fight page and updates the `fight_info` dictionary.
@@ -129,8 +129,8 @@ Code references:
 
 For each fight, detailed round-by-round statistics are extracted, including the number of significant strikes, body strikes, leg strikes, and more. This is handled by two helper functions:
     
-![Round Statistics (General)](file-HxwxLahkwr25jfGJAWwMN46I)
-![Round Statistics (Strikes)](file-CQCV0DQPYobXyzqpVBXC8Q1Y)
+![Round Statistics (General)](image%20(UFCStats.com)/UFCStats%20-%20Round%20Statistics%20(General).png)
+![Round Statistics (Strikes)](image%20(UFCStats.com)/UFCStats%20-%20Round%20Statistics%20(Strikes).png)
     
 - **Significant Strikes:** The `extract_strikes_data()` function collects data about strikes such as strikes to the head, body, legs, and distance strikes.
 - **General Fight Data:** The `extract_fighter_data()` function extracts other round-based data, such as knockdowns, submission attempts, takedowns, and control time.
@@ -143,7 +143,7 @@ Code references:
 
 The program also scrapes individual fighter pages to gather more specific details such as height, reach, and date of birth. This is useful for contextualizing the statistics.
     
-![Fighter Info](file-JdMIx9KRALYFEH67DfbWLpzl)
+![Fighter Info](image%20(UFCStats.com)/UFCStats%20-%20Fighter%20Info.png)
     
 - The `scrape_fighter_info(fighter_info)` function handles this task, retrieving attributes like height and reach from the fighter's profile page.
     
