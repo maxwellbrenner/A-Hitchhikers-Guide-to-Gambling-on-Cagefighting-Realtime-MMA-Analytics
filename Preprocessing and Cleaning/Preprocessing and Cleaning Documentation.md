@@ -99,7 +99,7 @@ def process_and_clean_data(file_path):
     - file_path (str): The path to the CSV file containing raw fight data.
 
     Returns:
-    - None: Saves the cleaned dataset to a CSV file called 'final_cleaned_data.csv'.
+    - None: Saves the cleaned dataset to a CSV file called 'cleaned_data.csv'.
     """
     df = pd.read_csv(file_path)
     df.replace(['--', ''], pd.NA, inplace=True)
@@ -142,8 +142,8 @@ def process_and_clean_data(file_path):
     df_final = select_final_columns(df)
 
     # Save the final dataset to a new CSV file
-    df_final.to_csv('final_cleaned_data.csv', index=False)
-    print("Final cleaned data has been saved as 'final_cleaned_data.csv'")
+    df_final.to_csv('cleaned_data.csv', index=False)
+    print("Final cleaned data has been saved as 'cleaned_data.csv'")
 ```
 
 ## Print Statement
@@ -152,7 +152,7 @@ def process_and_clean_data(file_path):
 
 ## Usage
 
-To use this script, place your raw fight data CSV file in the appropriate location, specify the file path in the `process_and_clean_data()` function, and run the script. The cleaned data will be saved as `final_cleaned_data.csv` in the current directory.
+To use this script, place your raw fight data CSV file in the appropriate location, specify the file path in the `process_and_clean_data()` function, and run the script. The cleaned data will be saved as `cleaned_data.csv` in the current directory.
 
 ```python
 file_path = r"event_masterlist"
@@ -160,6 +160,6 @@ process_and_clean_data(file_path)
 ```
 
 To use this script, place your raw fight data CSV file in the appropriate location, specify the file path in the
-`process_and_clean_data()` function, and run the script. The cleaned data will be saved as `final_cleaned_data.csv`
+`process_and_clean_data()` function, and run the script. The cleaned data will be saved as `cleaned_data.csv`
 in the current directory.
 
