@@ -527,13 +527,6 @@ The program also scrapes individual fighter pages to gather more specific detail
 - **Date of Birth**: 01-16-1993  
 - **Fighter Link**: [http://www.ufcstats.com/fighter-details/4126a78111c0855a](http://www.ufcstats.com/fighter-details/4126a78111c0855a)
 
-### Fighter Info for **Jared Cannonier**:
-- **Name**: Jared Cannonier
-- **Height**: 5' 11"  
-- **Reach**: 77"  
-- **Date of Birth**: 03-16-1984  
-- **Fighter Link**: [http://www.ufcstats.com/fighter-details/13a0275fa13c4d26](http://www.ufcstats.com/fighter-details/13a0275fa13c4d26)
-
 ## Code References
 - `scrape_fighter_info(fighter_info)`: Gathers personal statistics for each fighter, such as height and reach.
 
