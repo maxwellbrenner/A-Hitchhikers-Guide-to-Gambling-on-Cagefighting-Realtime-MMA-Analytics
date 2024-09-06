@@ -50,9 +50,9 @@
 
 ---
 
-## Overview of the `main` Function
+## Overview of the `main()` Function
 
-The `main` function orchestrates the web scraping process by following these steps:
+The `main()` function orchestrates the web scraping process by following these steps:
 
 1. **Fetch the Main Page**: It retrieves the main page that lists all completed UFC events using the `get_page_content` function.
 
