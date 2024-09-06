@@ -147,7 +147,7 @@ The program begins by executing the `main()` function. This function handles the
 
 The program starts by requesting and parsing the UFCStats homepage for completed events. This is done by calling `get_page_content(url)`, where `url` points to the main UFC stats events page (`http://www.ufcstats.com/statistics/events/completed?page=all`).
 
-![Homepage](UFCStats%20Scraper/images%20(UFCStats.com)/UFCStats%20-%20Homepage.png)
+![Homepage](images%20(UFCStats.com)/UFCStats%20-%20Homepage.png)
     
 - The homepage contains a list of events, each represented by a hyperlink. The events are marked with their names, locations, and dates.
 - Each event link is scraped and stored for further processing.
