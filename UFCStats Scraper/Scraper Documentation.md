@@ -721,4 +721,4 @@ For example, `rnd_one_a_sig_strikes` refers to the number of significant strikes
 
 The full set of columns is dynamically generated for each round (up to 5 rounds) and each fighter (A and B), following this structure.
 
-The final dataset will contain 152 columns, which includes all event information, fight details, fighter attributes, and round-by-round metrics for each fighter across up to five rounds. 
+The final dataset will contain 151 columns, which includes all event information, fight details, fighter attributes, and round-by-round metrics for each fighter across up to five rounds. 
