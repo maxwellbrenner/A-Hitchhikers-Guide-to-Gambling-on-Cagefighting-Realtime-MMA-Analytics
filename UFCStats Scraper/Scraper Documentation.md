@@ -1,4 +1,4 @@
-# A Hitchhikers Guide to Gambling on Cagefighting -- Realtime MMA Analytics
+# UFCStats Web Scraper
 
 ## Function Descriptions (Ordered by Execution in `main()`)
 
