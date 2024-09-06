@@ -278,13 +278,13 @@ def scrape_fight_info(fight_info):
 ### 4. Extracting Round-by-Round Data
 
 For each fight, detailed round-by-round statistics are extracted, including the number of significant strikes, body strikes, leg strikes, and more. This is handled by two helper functions:
+
+Code references:
+- `extract_fighter_data(row, index)`: Extracts fighter-specific statistics (e.g., knockdowns, takedowns, submission attempts) for each round.
     
 ![Round Statistics (General)](image%20(UFCStats.com)/UFCStats%20-%20Round%20Statistics%20(General).png)
 - **General Fight Data:** The `extract_fighter_data()` function extracts other round-based data, such as knockdowns, submission attempts, takedowns, and control time.
-    
-Code references:
-- `extract_fighter_data(row, index)`: Extracts fighter-specific statistics (e.g., knockdowns, takedowns, submission attempts) for each round.
-
+  
 ```python
 def extract_fighter_data(row, index):
     """
@@ -341,12 +341,11 @@ def extract_fighter_data(row, index):
     }
 ```
 
+Code references:
+- `extract_strikes_data(row, index)`: Extracts round-based strike information.
 
 ![Round Statistics (Strikes)](image%20(UFCStats.com)/UFCStats%20-%20Round%20Statistics%20(Strikes).png)
 - **Significant Strikes:** The `extract_strikes_data()` function collects data about strikes such as strikes to the head, body, legs, and distance strikes.
-
-Code references:
-- `extract_strikes_data(row, index)`: Extracts round-based strike information.
 
 ```python
 def extract_strikes_data(row, index):
