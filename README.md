@@ -77,6 +77,64 @@ The `main` function orchestrates the web scraping process by following these ste
 
 By the end of the `main` function, a detailed list of events and fight data is collected and written to a CSV file.
 
+Code references:
+```python
+def main():
+    """
+    Main function to orchestrate the web scraping process, including retrieving event data,
+    scraping fight details and individual fighter stats, and finally writing all data to a CSV file.
+    
+    Returns:
+    - list: List of dictionaries with detailed event and fight information (used for writing to CSV).
+    """
+    try:
+        # URL of the main page listing all completed events
+        url = 'http://www.ufcstats.com/statistics/events/completed?page=all'
+        soup = get_page_content(url)
+
+        # Check if the main page content was successfully retrieved
+        if soup:
+            event_elements = soup.find_all('a', class_='b-link b-link_style_black')
+            events_list = []
+
+            # Iterate over each event link found on the main page
+            for event_element in event_elements:
+                event_info, event_soup = extract_event_info(event_element)
+
+                # Check if the event page content was successfully retrieved
+                if event_soup:
+                    fight_rows = event_soup.find_all('tr', class_='b-fight-details__table-row')[1:]  # Skip the header row which contains a future event
+
+                    # Iterate over fight rows and extract fight information
+                    for fight_row in fight_rows:
+                        fight_info = extract_fight_info(fight_row)
+                        event_info['fights'].append(fight_info)
+
+                    events_list.append(event_info)
+
+            # Process each event and associated fights to scrape detailed information
+            for event_info in events_list:
+                print(f"\nEvent: {event_info['name']}")
+                print(f"Date: {event_info['date']}")
+                print(f"Location: {event_info['location']}")
+
+                for fight_info in event_info['fights']:
+                    scrape_fight_info(fight_info)
+                    scrape_fighter_info(fight_info['fighter_a'])
+                    scrape_fighter_info(fight_info['fighter_b'])
+
+        # Return the populated event list, useful for unit testing or further processing
+        return events_list
+
+    except Exception as e:
+        print(f"An error occurred: {e}")
+    finally:
+        # Always attempt to save data to CSV, even if an error occurs
+        if events_list:
+            print("Saving data to CSV due to an error or normal completion.")
+            write_to_csv(events_list)
+```
+
 
 ---
 
