@@ -46,7 +46,7 @@ We also exclude reversals, distance strikes, clinch strikes, and ground strikes,
 - **Description**: Converts control time from the 'MM:SS' format into total minutes for easier numerical analysis. Control time is a key metric in determining a fighter’s ability to dominate their opponent.
 
 ### 8. `attempted_landed_split(df, column_name)`
-- **Description**: Splits columns with the format 'X of Y' (e.g., strikes landed out of attempts) into two separate columns for 'landed' and 'attempted' values. This split enables us to analyze the efficiency and accuracy of a fighter's performance.
+- **Description**: Splits columns with the format 'Attempted of Landed' (e.g., strikes landed out of attempts) into two separate columns for 'landed' and 'attempted' values. This split enables us to analyze the efficiency and accuracy of a fighter's performance.
 
 ### 9. `calculate_disparities(df, rounds=2)`
 - **Description**: Calculates disparities in fight statistics (e.g., strikes, takedowns) between two fighters over the first two rounds. By focusing on disparities, we gain insight into how one fighter's performance compares to their opponent, which is a stronger predictor of fight outcomes than raw stats.
@@ -78,7 +78,7 @@ The main function, `process_and_clean_data()`, orchestrates the preprocessing of
 
 6. **Calculate age and control time**: Converts date of birth to age and control time to minutes using the `dob_to_age()` and `control_time_to_minutes()` functions, respectively, as both are important metrics for performance analysis.
 
-7. **Split 'attempted of landed' columns**: Splits columns with 'X of Y' format using the `attempted_landed_split()` function to isolate landed vs attempted actions for greater analytical precision.
+7. **Split 'attempted of landed' columns**: Splits columns with 'Attempted of Landed' format using the `attempted_landed_split()` function to isolate landed vs attempted actions for greater analytical precision.
 
 8. **Calculate disparities**: Computes statistical disparities between fighters using the `calculate_disparities()` function, as relative performance is a stronger predictor than absolute numbers.
 
@@ -146,6 +146,9 @@ def process_and_clean_data(file_path):
     print("Final cleaned data has been saved as 'final_cleaned_data.csv'")
 ```
 
+## Print Statement
+
+![Data Cleaning Print Statement](images/Data%20Cleaning%20Print%20Statement.png)
 
 ## Usage
 
@@ -160,6 +163,3 @@ To use this script, place your raw fight data CSV file in the appropriate locati
 `process_and_clean_data()` function, and run the script. The cleaned data will be saved as `final_cleaned_data.csv`
 in the current directory.
 
-## Print Statement
-
-![Data Cleaning Print Statement](images/Data%20Cleaning%20Print%20Statement.png)
