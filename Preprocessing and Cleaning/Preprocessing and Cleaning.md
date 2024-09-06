@@ -42,9 +42,9 @@ This script is designed to preprocess and clean fight data, focusing on filterin
 
 ---
 
-## Overview of the `process_and_clean_data` Function
+## Overview of the `process_and_clean_data()` Function
 
-The main function, `process_and_clean_data`, orchestrates the preprocessing of the fight dataset by following these steps:
+The main function, `process_and_clean_data()`, orchestrates the preprocessing of the fight dataset by following these steps:
 
 1. **Filter by rounds**: Filters out irrelevant rounds using the `filter_by_time_format()` function.
 
