@@ -77,7 +77,6 @@ The `main` function orchestrates the web scraping process by following these ste
 
 By the end of the `main` function, a detailed list of events and fight data is collected and written to a CSV file.
 
-Code references:
 ```python
 def main():
     """
@@ -162,7 +161,6 @@ The program starts by requesting and parsing the UFCStats homepage for completed
 - **Date**: 08-24-2024  
 - **Location**: Las Vegas, Nevada, USA
 
-Code references:
 - `get_page_content(url)`: Fetches the HTML page for completed UFC events.
 
 ```python
@@ -246,7 +244,6 @@ Once the main event page has been parsed, the program moves on to individual eve
 - **fighter_a**: Caio Borralho 
 - **fighter_b**: Jared Cannonier
     
-Code references:
 - `extract_fight_info(fight_row)`: Extracts individual fight information like fighter names, method of victory, and fight link.
 
 ```python
@@ -294,7 +291,6 @@ The program navigates to the fight-specific page for each individual fight in an
 - **Title Fight**: False  
 - **Gender**: Men
 
-Code references:
 - `scrape_fight_info(fight_info)`: Scrapes detailed fight data, including rounds, weight class, and method of victory.
 
 ```python
@@ -367,7 +363,6 @@ For each fight, detailed round-by-round statistics are extracted, including the 
     
 ![Round Statistics (General)](image%20(UFCStats.com)/UFCStats%20-%20Round%20Statistics%20(General).png)
 
-Code references:
 - `extract_fighter_data(row, index)`: Extracts fighter-specific statistics (e.g., knockdowns, takedowns, submission attempts) for each round.
   
 ```python
@@ -430,7 +425,6 @@ def extract_fighter_data(row, index):
 
 ![Round Statistics (Strikes)](image%20(UFCStats.com)/UFCStats%20-%20Round%20Statistics%20(Strikes).png)
 
-Code references:
 - `extract_strikes_data(row, index)`: Extracts round-based strike information.
 
 ```python
@@ -535,7 +529,6 @@ The program also scrapes individual fighter pages to gather more specific detail
 - **Date of Birth**: 03-16-1984  
 - **Fighter Link**: [http://www.ufcstats.com/fighter-details/13a0275fa13c4d26](http://www.ufcstats.com/fighter-details/13a0275fa13c4d26)
     
-Code references:
 - `scrape_fighter_info(fighter_info)`: Gathers personal statistics for each fighter, such as height and reach.
 
 ```python
@@ -601,7 +594,6 @@ Once all event, fight, and fighter data has been collected, the program writes t
 - The headers of the CSV include event name, event date, location, winner, fighter statistics, and round-by-round details.
 - For each fight, it includes a row with detailed information about the event, fighter, and round statistics.
 
-Code references:
 - `write_to_csv(events_list)`: Writes all collected fight and fighter data to a CSV file for analysis.
 
 ```python
