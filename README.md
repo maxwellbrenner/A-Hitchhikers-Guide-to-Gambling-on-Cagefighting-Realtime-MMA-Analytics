@@ -1,53 +1,52 @@
 # A-Hitchhiker-s-Guide-to-Gambling-on-Cagefighting-Realtime-MMA-Analytics
 
-# UFC Fight Scraper
+### Function Descriptions (Ordered by Execution in Main)
 
-## List of All Functions with Descriptions
+1. **get_page_content(url)**
+   - **Description**: This function retrieves and parses the HTML content from the given URL using the requests library. It returns a BeautifulSoup object if the request is successful, otherwise, it prints an error message and returns None.
 
-### 1. `get_page_content(url)`
-- **Description**: This function retrieves and parses the HTML content from the given URL using the `requests` library. It returns a BeautifulSoup object if the request is successful, otherwise, it prints an error message and returns `None`.
+2. **extract_event_info(event_element)**
+   - **Description**: Extracts basic information for an event, including the event name, link, date, and location. Returns an event dictionary and the parsed content (soup) of the event page.
 
-### 2. `parse_date(date_str)`
-- **Description**: This function converts a date string into the format `'MM-DD-YYYY'`. If the input is `'N/A'`, it returns `'N/A'`. If the conversion fails, it catches the error and returns `'N/A'`.
+3. **extract_fight_info(fight_row)**
+   - **Description**: Extracts information about a specific fight from a table row, including fight link, winner, method of victory, and fighter details (names and links).
 
-### 3. `extract_fighter_info(fighter_row)`
-- **Description**: Extracts basic information about two fighters (names and links) from a table row. It returns two dictionaries representing fighter A and fighter B, along with empty lists for rounds information.
+4. **get_fight_link_and_winner(fight_row)**
+   - **Description**: Extracts the fight link, winner, and method of victory based on the table row information. If no fight link is available, it defaults to 'N/A', and if no winner is determined, it defaults to 'N/A'. It returns the fight link, winner, and method of victory.
 
-### 4. `convert_to_inches(height_info)`
-- **Description**: Converts a height string from the format "feet'inches"" into inches (e.g., "6'0"" to 72 inches). If the conversion fails, it returns `'N/A'` for both the original format and inches.
+5. **extract_fighter_info(fighter_row)**
+   - **Description**: Extracts basic information about two fighters (names and links) from a table row. It returns two dictionaries representing fighter A and fighter B, along with empty lists for rounds information.
 
-### 5. `convert_to_numerical_date(date_str)`
-- **Description**: Converts a date string in the format `'%b %d, %Y'` (e.g., `'Jan 01, 2020'`) into a numerical date in the format `'%m-%d-%Y'`. Returns `'N/A'` if the conversion fails.
+6. **scrape_fight_info(fight_info)**
+   - **Description**: Scrapes detailed fight information from the fight page, including rounds and results. Updates the fight_info dictionary with this data, including weight class, title fight status, gender, and round-specific information for both fighters.
 
-### 6. `extract_strikes_data(row, index)`
-- **Description**: Extracts detailed strike data for a fighter from a table row. It includes head, body, leg, distance, clinch, and ground strikes for a specified fighter (index 0 for fighter A, 1 for fighter B). It returns a dictionary containing these details.
+7. **extract_victory_and_round_data(fight_soup, fight_info)**
+   - **Description**: Extracts the method of victory, round of victory, time of victory, time format, and referee data from the fight page and updates the fight_info dictionary.
 
-### 7. `extract_fighter_data(row, index)`
-- **Description**: Extracts detailed fight statistics for a fighter, such as knockdowns, significant strikes, total strikes, takedowns, submission attempts, reversals, and control time. It returns this data in a dictionary for a specified fighter (index 0 for fighter A, 1 for fighter B).
+8. **extract_round_data(row_fighter_data, row_strikes_data, fighter_a_name, fighter_b_name, fight_info)**
+   - **Description**: Extracts round-by-round data for both fighters, including fighter stats and strike data, and updates the fight_info dictionary with this information.
 
-### 8. `get_fight_link_and_winner(fight_row)`
-- **Description**: Extracts the fight link, winner, and method of victory based on the table row information. If no fight link is available, it defaults to `'N/A'`, and if no winner is determined, it defaults to `'N/A'`. It returns the fight link, winner, and method of victory.
+9. **extract_fighter_data(row, index)**
+   - **Description**: Extracts detailed fight statistics for a fighter, such as knockdowns, significant strikes, total strikes, takedowns, submission attempts, reversals, and control time. It returns this data in a dictionary for a specified fighter (index 0 for fighter A, 1 for fighter B).
 
-### 9. `extract_round_data(row_fighter_data, row_strikes_data, fighter_a_name, fighter_b_name, fight_info)`
-- **Description**: Extracts round-by-round data for both fighters, including fighter stats and strike data, and updates the `fight_info` dictionary with this information.
+10. **extract_strikes_data(row, index)**
+    - **Description**: Extracts detailed strike data for a fighter from a table row. It includes head, body, leg, distance, clinch, and ground strikes for a specified fighter (index 0 for fighter A, 1 for fighter B). It returns a dictionary containing these details.
 
-### 10. `extract_victory_and_round_data(fight_soup, fight_info)`
-- **Description**: Extracts the method of victory, round of victory, time of victory, time format, and referee data from the fight page and updates the `fight_info` dictionary.
+11. **scrape_fighter_info(fighter_info)**
+    - **Description**: Scrapes individual fighter details from the fighter’s page, including height, reach, and date of birth, and updates the fighter_info dictionary with these attributes.
 
-### 11. `scrape_fight_info(fight_info)`
-- **Description**: Scrapes detailed fight information from the fight page, including rounds and results. Updates the `fight_info` dictionary with this data, including weight class, title fight status, gender, and round-specific information for both fighters.
+12. **convert_to_inches(height_info)**
+    - **Description**: Converts a height string from the format "feet'inches"" into inches (e.g., "6'0"" to 72 inches). If the conversion fails, it returns 'N/A' for both the original format and inches.
 
-### 12. `scrape_fighter_info(fighter_info)`
-- **Description**: Scrapes individual fighter details from the fighter’s page, including height, reach, and date of birth, and updates the `fighter_info` dictionary with these attributes.
+13. **convert_to_numerical_date(date_str)**
+    - **Description**: Converts a date string in the format '%b %d, %Y' (e.g., 'Jan 01, 2020') into a numerical date in the format '%m-%d-%Y'. Returns 'N/A' if the conversion fails.
 
-### 13. `write_to_csv(events_list)`
-- **Description**: Writes the collected event and fight data, including detailed round-by-round statistics, to a CSV file. Each row in the CSV represents a fight, and columns include event details, fighter statistics, and round information.
+14. **parse_date(date_str)**
+    - **Description**: This function converts a date string into the format 'MM-DD-YYYY'. If the input is 'N/A', it returns 'N/A'. If the conversion fails, it catches the error and returns 'N/A'.
 
-### 14. `extract_event_info(event_element)`
-- **Description**: Extracts basic information for an event, including the event name, link, date, and location. Returns an event dictionary and the parsed content (soup) of the event page.
+15. **write_to_csv(events_list)**
+    - **Description**: Writes the collected event and fight data, including detailed round-by-round statistics, to a CSV file. Each row in the CSV represents a fight, and columns include event details, fighter statistics, and round information.
 
-### 15. `extract_fight_info(fight_row)`
-- **Description**: Extracts information about a specific fight from a table row, including fight link, winner, method of victory, and fighter details (names and links).
 
 ---
 
