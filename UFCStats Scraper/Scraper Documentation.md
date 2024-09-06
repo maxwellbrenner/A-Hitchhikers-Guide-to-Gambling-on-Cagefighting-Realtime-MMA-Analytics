@@ -54,26 +54,26 @@
 
 The `main()` function orchestrates the web scraping process by following these steps:
 
-1. **Fetch the Main Page**: It retrieves the main page that lists all completed UFC events using the `get_page_content` function.
+1. **Fetch the Main Page**: It retrieves the main page that lists all completed UFC events using the `get_page_content()` function.
 
 2. **Parse Events**: It loops through the event elements (links to individual events) on the main page. For each event:
-   - The `extract_event_info` function is called to gather the event's basic details (name, date, location) and to parse the event page.
+   - The `extract_event_info()` function is called to gather the event's basic details (name, date, location) and to parse the event page.
    
 3. **Parse Fights**: For each event, it retrieves the list of fights:
-   - The `extract_fight_info` function extracts basic fight data such as fight link, winner, and fighter details from the event's fight table.
+   - The `extract_fight_info()` function extracts basic fight data such as fight link, winner, and fighter details from the event's fight table.
    - This information is added to the `fights` list in the event's dictionary.
 
 4. **Scrape Detailed Fight and Fighter Information**: Once basic fight details are collected:
-   - The `scrape_fight_info` function is called to scrape detailed fight data, such as round-by-round stats, methods of victory, and more.
-   - The `scrape_fighter_info` function scrapes additional details for each fighter, including height, reach, and date of birth.
+   - The `scrape_fight_info()` function is called to scrape detailed fight data, such as round-by-round stats, methods of victory, and more.
+   - The `scrape_fighter_info()` function scrapes additional details for each fighter, including height, reach, and date of birth.
 
 5. **Store Events**: The completed event (with detailed fight data) is added to the `events_list`.
 
-6. **Write to CSV**: After processing all events and fights, the `write_to_csv` function is called to save the results into a CSV file.
+6. **Write to CSV**: After processing all events and fights, the `write_to_csv()` function is called to save the results into a CSV file.
 
 7. **Error Handling**: The function includes basic error handling to ensure that if an error occurs, the data collected so far is still written to the CSV.
 
-By the end of the `main` function, a detailed list of events and fight data is collected and written to a CSV file.
+By the end of the `main()` function, a detailed list of events and fight data is collected and written to a CSV file.
 
 ```python
 def main():
