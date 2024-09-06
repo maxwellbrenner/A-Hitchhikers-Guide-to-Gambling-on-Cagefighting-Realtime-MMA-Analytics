@@ -46,25 +46,25 @@ This script is designed to preprocess and clean fight data, focusing on filterin
 
 The main function, `process_and_clean_data`, orchestrates the preprocessing of the fight dataset by following these steps:
 
-1. **Filter by rounds**: Filters out irrelevant rounds using the `filter_by_time_format` function.
+1. **Filter by rounds**: Filters out irrelevant rounds using the `filter_by_time_format()` function.
 
-2. **Remove early stoppages**: Excludes early stoppages using the `filter_by_early_stoppage` function.
+2. **Remove early stoppages**: Excludes early stoppages using the `filter_by_early_stoppage()` function.
 
-3. **Filter by date**: Keeps fights within the desired date range using the `filter_by_date` function.
+3. **Filter by date**: Keeps fights within the desired date range using the `filter_by_date()` function.
 
-4. **Drop missing values**: Cleans missing data using the `drop_NaN_values` function.
+4. **Drop missing values**: Cleans missing data using the `drop_NaN_values()` function.
 
-5. **Filter by gender**: Keeps only fights from the specified gender using the `filter_by_gender` function.
+5. **Filter by gender**: Keeps only fights from the specified gender using the `filter_by_gender()` function.
 
-6. **Calculate age and control time**: Converts date of birth to age and control time to minutes using the `dob_to_age` and `control_time_to_minutes` functions.
+6. **Calculate age and control time**: Converts date of birth to age and control time to minutes using the `dob_to_age()` and `control_time_to_minutes()` functions.
 
-7. **Split 'attempted of landed' columns**: Splits columns with 'X of Y' format using the `attempted_landed_split` function.
+7. **Split 'attempted of landed' columns**: Splits columns with 'X of Y' format using the `attempted_landed_split()` function.
 
-8. **Calculate disparities**: Computes statistical disparities between fighters using the `calculate_disparities` function.
+8. **Calculate disparities**: Computes statistical disparities between fighters using the `calculate_disparities()` function.
 
-9. **Split fighter data**: Creates independent rows for each fighter using the `split_fighter_statistics` function.
+9. **Split fighter data**: Creates independent rows for each fighter using the `split_fighter_statistics()` function.
 
-10. **Select final columns**: Keeps only the relevant columns using the `select_final_columns` function.
+10. **Select final columns**: Keeps only the relevant columns using the `select_final_columns()` function.
 
 11. **Save the cleaned dataset**: Outputs the cleaned dataset to a CSV file.
 
@@ -73,7 +73,7 @@ This systematic approach ensures that the data is well-prepared for further anal
 
 ## Usage
 
-To use this script, place your raw fight data CSV file in the appropriate location, specify the file path in the `process_and_clean_data` function, and run the script. The cleaned data will be saved as `final_cleaned_data.csv` in the current directory.
+To use this script, place your raw fight data CSV file in the appropriate location, specify the file path in the `process_and_clean_data()` function, and run the script. The cleaned data will be saved as `final_cleaned_data.csv` in the current directory.
 
 ```python
 file_path = r"your_raw_data_path"
@@ -81,7 +81,7 @@ process_and_clean_data(file_path)
 ```
 
 To use this script, place your raw fight data CSV file in the appropriate location, specify the file path in the
-`process_and_clean_data` function, and run the script. The cleaned data will be saved as `final_cleaned_data.csv`
+`process_and_clean_data()` function, and run the script. The cleaned data will be saved as `final_cleaned_data.csv`
 in the current directory.
 
 
