@@ -2,7 +2,7 @@
 
 # UFC Fight Scraper
 
-## List of All Functions with Descriptions
+### Function Descriptions (Ordered by Execution in Main)
 
 ### 1. `get_page_content(url)`
 - **Description**: This function retrieves and parses the HTML content from the given URL using the `requests` library. It returns a BeautifulSoup object if the request is successful, otherwise, it prints an error message and returns `None`.
