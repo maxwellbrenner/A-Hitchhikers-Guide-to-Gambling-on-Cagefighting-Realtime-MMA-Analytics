@@ -25,7 +25,7 @@
 ### 7. `extract_victory_and_round_data(fight_soup, fight_info)`
 - **Description**: Extracts the method of victory, round of victory, time of victory, time format, and referee data from the fight page and updates the `fight_info` dictionary.
 
-### 8. `extract_round_data(row_fighter_data, row_strikes_data, fighter_a_name, fighter_b_name, fight_info)`
+### 8. `extract_round_data(row_fighter_data, row_strikes_data, fighter_a_name, fighter_b_name,    fight_info)`
 - **Description**: Extracts round-by-round data for both fighters, including fighter stats and strike data, and updates the `fight_info` dictionary with this information.
 
 ### 9. `extract_fighter_data(row, index)`
