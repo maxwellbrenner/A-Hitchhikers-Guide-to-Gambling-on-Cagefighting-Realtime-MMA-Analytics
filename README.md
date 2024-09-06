@@ -99,6 +99,32 @@ The program starts by requesting and parsing the UFCStats homepage for completed
 
 Code references:
 - `get_page_content(url)`: Fetches the HTML page for completed UFC events.
+
+```python
+def get_page_content(url):
+    """
+    Retrieve and parse HTML content from a specified URL using a user-defined number of retries.
+    Returns a BeautifulSoup object if successful, otherwise None.
+
+    Parameters:
+    - url (str): The URL from which to fetch content.
+
+    Returns:
+    - BeautifulSoup: Parsed HTML of the page, or None if the request fails after retries.
+    """
+
+    try:
+        response = requests.get(url, headers=headers)
+        if response.status_code == 200:
+            return BeautifulSoup(response.content, 'html.parser')
+        else:
+            print(f"Failed to retrieve the page. Status code: {response.status_code}")
+    except requests.RequestException as e:
+        print(f"Request failed: {e}")
+
+    print("All attempts failed. Returning None.")
+    return None
+
 - `extract_event_info(event_element)`: Extracts information about each event (name, link, date, and location).
 
 ### 2. Extracting Event Details
