@@ -98,29 +98,7 @@ The program starts by requesting and parsing the UFCStats homepage for completed
 - Each event link is scraped and stored for further processing.
 
 Code references:
-```python
-def get_page_content(url):
-    """
-    Retrieve and parse HTML content from a specified URL using a user-defined number of retries.
-    Returns a BeautifulSoup object if successful, otherwise None.
-
-    Parameters:
-    - url (str): The URL from which to fetch content.
-
-    Returns:
-    - BeautifulSoup: Parsed HTML of the page, or None if the request fails after retries.
-    """
-    try:
-        response = requests.get(url, headers=headers)
-        if response.status_code == 200:
-            return BeautifulSoup(response.content, 'html.parser')
-        else:
-            print(f"Failed to retrieve the page. Status code: {response.status_code}")
-    except requests.RequestException as e:
-        print(f"Request failed: {e}")
-
-    print("All attempts failed. Returning None.")
-    return None
+- `get_page_content(url)`: Fetches the HTML page for completed UFC events.
 - `extract_event_info(event_element)`: Extracts information about each event (name, link, date, and location).
 
 ### 2. Extracting Event Details
@@ -152,11 +130,10 @@ Code references:
 For each fight, detailed round-by-round statistics are extracted, including the number of significant strikes, body strikes, leg strikes, and more. This is handled by two helper functions:
     
 ![Round Statistics (General)](image%20(UFCStats.com)/UFCStats%20-%20Round%20Statistics%20(General).png)
-- **General Fight Data:** The `extract_fighter_data()` function extracts other round-based data, such as knockdowns, submission attempts, takedowns, and control time.
-
 ![Round Statistics (Strikes)](image%20(UFCStats.com)/UFCStats%20-%20Round%20Statistics%20(Strikes).png)
+    
 - **Significant Strikes:** The `extract_strikes_data()` function collects data about strikes such as strikes to the head, body, legs, and distance strikes.
-
+- **General Fight Data:** The `extract_fighter_data()` function extracts other round-based data, such as knockdowns, submission attempts, takedowns, and control time.
     
 Code references:
 - `extract_strikes_data(row, index)`: Extracts round-based strike information.
@@ -182,3 +159,4 @@ Once all event, fight, and fighter data has been collected, the program writes t
 
 Code references:
 - `write_to_csv(events_list)`: Writes all collected fight and fighter data to a CSV file for analysis.
+
