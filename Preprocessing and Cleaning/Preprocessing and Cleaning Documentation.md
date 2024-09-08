@@ -4,14 +4,14 @@ After gathering a comprehensive dataset that includes every event, fight, and ro
 
 This script is designed to preprocess and clean fight data, focusing on filtering relevant fights, calculating disparities between fighters, and splitting fight statistics for machine learning analysis. The cleaned dataset is saved as a CSV file.
 
-### Exclusion of Women's and Title Fights
-We exclude women's and title fights because of the limited sample size. The vast majority of MMA fights are fought in the men's division, and of those, only a small fraction are title fights (which span 5 rounds). To ensure consistent and reliable predictions, our model focuses exclusively on three-round fights, where the first two rounds provide sufficient data for analysis.
-
 ### Exclusion of Early Stoppages
 Fights that end before the second round are excluded from our analysis, as these early stoppages do not yield enough in-round statistics to meet the requirements of our model. By filtering for fights that make it past round two, we ensure that our dataset is comprehensive enough to provide meaningful insights based on fighter performance over two rounds.
 
 ### Modern Data Focus
 Given the rapid evolution of MMA over the past decade, it’s important to focus on the most relevant data. Therefore, we limit our dataset to fights from the last ten years. This helps ensure that the model's predictions are based on modern fight dynamics, making it more applicable to the current landscape of the sport.
+
+### Exclusion of Women's and Title Fights
+We exclude women's and title fights because of the limited sample size. The vast majority of MMA fights are fought in the men's division, and of those, only a small fraction are title fights (which span 5 rounds). To ensure consistent and reliable predictions, our model focuses exclusively on three-round fights, where the first two rounds provide sufficient data for analysis.
 
 ### Calculation of Performance Disparities
 Instead of simply analyzing raw statistics for each fighter, we calculate performance **disparities** — for example, the difference in strikes landed or control time between fighters. This approach gives us a clearer understanding of how each fighter performed relative to their opponent, which is a more accurate predictor of fight outcomes.
